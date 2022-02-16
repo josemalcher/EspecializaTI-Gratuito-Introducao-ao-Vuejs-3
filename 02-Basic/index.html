@@ -11,12 +11,20 @@
         <h1>Filme 01</h1>
         <p>{{product.title}}</p>
         <img style="height: 200px" v-bind:src="product.image">
+        <p><strong v-if="product.stars >= 5">{{product.stars}}</strong></p>
     </div>
 
     <div>
         <h1>Filme 02</h1>
         <p>{{product2.title}}</p>
         <img style="height: 200px" :src="product2.image">
+        <p><strong v-show="product2.stars >= 5">{{product2.stars}}</strong></p>
+    </div>
+
+    <div>
+        <div v-if="number === 2">DOIS</div>
+        <div v-else-if="number === 5">CINCO</div>
+        <div v-else>DESCONHECIDO</div>
     </div>
 
 
