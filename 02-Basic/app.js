@@ -1,6 +1,7 @@
 Vue.createApp({
     data() {
         return {
+            title: 'Carrinho Vazio',
             message: 'Hello Vue!',
             number: 0,
             products: [
@@ -16,7 +17,13 @@ Vue.createApp({
                     image: './assets/filme02.jpg',
                     stars: 5
                 }
-            ]
+            ],
+            cart: []
+        }
+    },
+    methods:{
+        addCart(product){
+            this.cart.push(product)
         }
     }
 }).mount('#app')
