@@ -13,7 +13,18 @@
         <p>{{product.title}}</p>
         <img style="height: 200px" v-bind:src="product.image">
         <p><strong v-if="product.stars >= 5">{{product.stars}}</strong></p>
-        <a href="#" v-on:click="addCart(product)">Adicionar +</a>
+        <a href="#"
+           @click.prevent="removeCart(product)"
+           v-if="inCart(product)"
+        >
+            REMOVER
+        </a>
+        <a href="#"
+           v-on:click.prevent="addCart(product)"
+           v-else
+        >
+            Adicionar +
+        </a>
     </div>
 
     <hr>
