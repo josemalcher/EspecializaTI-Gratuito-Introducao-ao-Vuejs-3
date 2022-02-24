@@ -1,7 +1,7 @@
 Vue.createApp({
     data() {
         return {
-            title: 'Carrinho Vazio',
+            title: 'carrinho vazio',
             message: 'Hello Vue!',
             number: 0,
             products: [
@@ -19,6 +19,11 @@ Vue.createApp({
                 }
             ],
             cart: []
+        }
+    },
+    computed:{
+        titleUp(){
+            return this.title.toUpperCase()
         }
     },
     methods:{
