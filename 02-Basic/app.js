@@ -1,6 +1,8 @@
 Vue.createApp({
     data() {
         return {
+            // bgColor: '#fff',
+            // textColor: '#000',
             title: 'carrinho vazio',
             message: 'Hello Vue!',
             number: 0,
@@ -18,7 +20,13 @@ Vue.createApp({
                     stars: 5
                 }
             ],
-            cart: []
+            cart: [],
+            styles: {
+                backgroundColor: '#000',
+                color: '#fff'
+            },
+            themeBlack: true
+
         }
     },
     computed:{
@@ -35,6 +43,16 @@ Vue.createApp({
         },
         removeCart(product){
             this.cart = this.cart.filter((prod, index) => product != prod)
+        },
+        thogleTheme(){
+            this.themeBlack = !this.themeBlack
+            if (this.themeBlack) {
+                this.styles.backgroundColor = '#000'
+                this.styles.color = '#fff'
+            }else{
+                this.styles.backgroundColor = '#fff'
+                this.styles.color = '#000'
+            }
         }
     }
 }).mount('#app')

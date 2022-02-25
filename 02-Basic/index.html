@@ -7,24 +7,30 @@
 <body>
 
 <div id="app">
-    <h2>{{titleUp}}</h2>
-    <p>Produtos: {{cart.length}}</p>
-    <div v-for="(product, index) in products" :key="index">
-        <p>{{product.title}}</p>
-        <img style="height: 200px" v-bind:src="product.image">
-        <p><strong v-if="product.stars >= 5">{{product.stars}}</strong></p>
-        <a href="#"
-           @click.prevent="removeCart(product)"
-           v-if="inCart(product)"
-        >
-            REMOVER
-        </a>
-        <a href="#"
-           v-on:click.prevent="addCart(product)"
-           v-else
-        >
-            Adicionar +
-        </a>
+    <!--<div :style="{backgroundColor: bgColor, color:textColor}">-->
+    <div :style="styles">
+        <label for="themeBlack">
+            <input type="checkbox" :checked="themeBlack" @click="thogleTheme" name="themeBlack" id="themeBlack"> Tema Escuro
+        </label>
+        <h2>{{titleUp}}</h2>
+        <p>Produtos: {{cart.length}}</p>
+        <div v-for="(product, index) in products" :key="index">
+            <p>{{product.title}}</p>
+            <img style="height: 200px" v-bind:src="product.image">
+            <p><strong v-if="product.stars >= 5">{{product.stars}}</strong></p>
+            <a href="#"
+               @click.prevent="removeCart(product)"
+               v-if="inCart(product)"
+            >
+                REMOVER
+            </a>
+            <a href="#"
+               v-on:click.prevent="addCart(product)"
+               v-else
+            >
+                Adicionar +
+            </a>
+        </div>
     </div>
 
     <hr>
