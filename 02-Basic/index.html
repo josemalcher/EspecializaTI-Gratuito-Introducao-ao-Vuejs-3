@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>APP VUE</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
@@ -18,18 +19,25 @@
             <p>{{product.title}}</p>
             <img style="height: 200px" v-bind:src="product.image">
             <p><strong v-if="product.stars >= 5">{{product.stars}}</strong></p>
-            <a href="#"
-               @click.prevent="removeCart(product)"
-               v-if="inCart(product)"
+            <button
+                    @click.prevent="addCart(product)"
+                    :disabled="incart(product)"
+                    :class="['color',{'button-disabled' : incart(product)}]"
             >
-                REMOVER
-            </a>
-            <a href="#"
-               v-on:click.prevent="addCart(product)"
-               v-else
-            >
-                Adicionar +
-            </a>
+            Adicionar
+            </button>
+<!--            <a href="#"-->
+<!--               @click.prevent="removeCart(product)"-->
+<!--               v-if="inCart(product)"-->
+<!--            >-->
+<!--                REMOVER-->
+<!--            </a>-->
+<!--            <a href="#"-->
+<!--               v-on:click.prevent="addCart(product)"-->
+<!--               v-else-->
+<!--            >-->
+<!--                Adicionar +-->
+<!--            </a>-->
         </div>
     </div>
 

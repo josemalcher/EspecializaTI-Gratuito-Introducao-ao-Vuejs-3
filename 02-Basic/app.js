@@ -44,6 +44,9 @@ Vue.createApp({
         removeCart(product){
             this.cart = this.cart.filter((prod, index) => product != prod)
         },
+        incart(product){
+            return this.cart.indexOf(product) != -1
+        },
         thogleTheme(){
             this.themeBlack = !this.themeBlack
             if (this.themeBlack) {
