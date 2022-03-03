@@ -1,4 +1,4 @@
-Vue.createApp({
+const myApp = {
     data() {
         return {
             // bgColor: '#fff',
@@ -44,9 +44,6 @@ Vue.createApp({
         removeCart(product){
             this.cart = this.cart.filter((prod, index) => product != prod)
         },
-        incart(product){
-            return this.cart.indexOf(product) != -1
-        },
         thogleTheme(){
             this.themeBlack = !this.themeBlack
             if (this.themeBlack) {
@@ -58,4 +55,6 @@ Vue.createApp({
             }
         }
     }
-}).mount('#app')
+}
+
+const app = Vue.createApp(myApp)

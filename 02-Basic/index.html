@@ -16,28 +16,11 @@
         <h2>{{titleUp}}</h2>
         <p>Produtos: {{cart.length}}</p>
         <div v-for="(product, index) in products" :key="index">
-            <p>{{product.title}}</p>
-            <img style="height: 200px" v-bind:src="product.image">
-            <p><strong v-if="product.stars >= 5">{{product.stars}}</strong></p>
-            <button
-                    @click.prevent="addCart(product)"
-                    :disabled="incart(product)"
-                    :class="['color',{'button-disabled' : incart(product)}]"
+            <product-detail
+                    :product="product"
+                    :productInCart="inCart(cart)"
             >
-            Adicionar
-            </button>
-<!--            <a href="#"-->
-<!--               @click.prevent="removeCart(product)"-->
-<!--               v-if="inCart(product)"-->
-<!--            >-->
-<!--                REMOVER-->
-<!--            </a>-->
-<!--            <a href="#"-->
-<!--               v-on:click.prevent="addCart(product)"-->
-<!--               v-else-->
-<!--            >-->
-<!--                Adicionar +-->
-<!--            </a>-->
+            </product-detail>
         </div>
     </div>
 
@@ -48,10 +31,16 @@
         <div v-else>DESCONHECIDO</div>
     </div>
 
+    <hr>
+
 
 </div>
 
 <script src="https://unpkg.com/vue@3"></script>
 <script src="app.js"></script>
+<script src="components/ProductDetail.js"></script>
+<script>
+    app.mount('#app')
+</script>
 </body>
 </html>
