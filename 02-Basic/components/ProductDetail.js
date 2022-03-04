@@ -12,6 +12,7 @@ const productDetail = {
         </button>
     `,
     // props: ['product', 'productInCart'],
+    emits: ['add-prod-cart'],
     props: {
         product: {
             type: Object,
@@ -30,6 +31,7 @@ const productDetail = {
     methods: {
         addCart(product) {
             console.log('add cart in components')
+            this.$emit('add-prod-cart', product)
         },
     }
 }

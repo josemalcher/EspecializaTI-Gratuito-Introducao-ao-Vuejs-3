@@ -18,7 +18,8 @@
         <div v-for="(product, index) in products" :key="index">
             <product-detail
                     :product="product"
-                    :productInCart="inCart(cart)"
+                    :productInCart="inCart(product)"
+                    @dd-prod-cart="addCart"
             >
             </product-detail>
         </div>
